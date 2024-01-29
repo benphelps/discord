@@ -49,7 +49,7 @@ class DiscordChannel
             $data['components'] = $message->components;
         }
 
-        if (isArray($channel)) {
+        if (is_array($channel)) {
             $responses = [];
 
             foreach($channel as $chan) {
