@@ -49,6 +49,16 @@ class DiscordChannel
             $data['components'] = $message->components;
         }
 
+        if (isArray($channel)) {
+            $responses = [];
+
+            foreach($channel as $chan) {
+                $responses[] = $this->discord->send($chan, $data);
+            }
+
+            return $responses;
+        }
+        
         return $this->discord->send($channel, $data);
     }
 }
